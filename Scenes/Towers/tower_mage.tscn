@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dugu6o8w6txqx"]
+
+[ext_resource type="Script" path="res://Scenes/Towers/tower_mage.gd" id="1_lc4g8"]
+[ext_resource type="Texture2D" uid="uid://b2aupimflahyd" path="res://Assets/Environment/Tilesets/tile044.png" id="2_an88q"]
+[ext_resource type="Texture2D" uid="uid://psaaufwy0y6x" path="res://Assets/Towers/Mage/Idle.png" id="3_s0qxb"]
+
+[node name="TowerMage" type="Node2D"]
+script = ExtResource("1_lc4g8")
+
+[node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_an88q")
+
+[node name="Tower" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_s0qxb")
+offset = Vector2(0, -2)
+hframes = 4
+frame = 3
+
+[node name="Muzzle" type="Marker2D" parent="Tower"]
+position = Vector2(8.31, 0)
