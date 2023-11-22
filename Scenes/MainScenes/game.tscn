@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://2l53iqdxctbl"]
+[gd_scene load_steps=6 format=3 uid="uid://2l53iqdxctbl"]
 
 [ext_resource type="PackedScene" uid="uid://kvtjygqln428" path="res://Scenes/Maps/map_1.tscn" id="1_81u73"]
+[ext_resource type="Script" path="res://Scenes/MainScenes/game.gd" id="1_s360q"]
 [ext_resource type="Texture2D" uid="uid://gt5wcvnl6k3h" path="res://Assets/Towers/Knight/Faceset.png" id="2_nn1ye"]
+[ext_resource type="Script" path="res://Scenes/MainScenes/UI.gd" id="3_0f01c"]
 [ext_resource type="Texture2D" uid="uid://b271x3lgfvanm" path="res://Assets/Towers/Mage/Faceset.png" id="3_rgqh6"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_s360q")
 
 [node name="Map1" parent="." instance=ExtResource("1_81u73")]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_0f01c")
 
 [node name="HUD" type="Control" parent="UI"]
 layout_mode = 3
@@ -17,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD"]
 layout_mode = 1
@@ -33,7 +38,7 @@ grow_vertical = 0
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Knight" type="TextureButton" parent="UI/HUD/HBoxContainer"]
+[node name="Knight" type="TextureButton" parent="UI/HUD/HBoxContainer" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -42,7 +47,7 @@ size_flags_stretch_ratio = 0.1
 texture_normal = ExtResource("2_nn1ye")
 stretch_mode = 0
 
-[node name="Mage" type="TextureButton" parent="UI/HUD/HBoxContainer"]
+[node name="Mage" type="TextureButton" parent="UI/HUD/HBoxContainer" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture_normal = ExtResource("3_rgqh6")
