@@ -15,7 +15,7 @@ func _ready():
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 
 	
-func _process(delta): #Run every frame
+func _process(_delta): #Run every frame
 	if build_mode:
 		update_tower_preview()
 

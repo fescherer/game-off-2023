@@ -1,151 +1,112 @@
-[gd_scene load_steps=6 format=3 uid="uid://cedw06p8gl30v"]
+[gd_scene load_steps=10 format=3 uid="uid://cedw06p8gl30v"]
 
 [ext_resource type="Texture2D" uid="uid://ccjy3m84heq6y" path="res://Assets/UI/bg.png" id="1_iiesl"]
-[ext_resource type="Texture2D" uid="uid://dcgug6x4g8vkp" path="res://Assets/UI/blue_button03.png" id="2_7vrk0"]
-[ext_resource type="Texture2D" uid="uid://c1kxfwuu1tf6s" path="res://Assets/UI/blue_button05.png" id="3_a5q7l"]
 [ext_resource type="FontFile" uid="uid://l2rg3y53j8an" path="res://Assets/Fonts/NormalFont.ttf" id="4_536vs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqo6p"]
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u38el"]
+bg_color = Color(0.290196, 0.290196, 0.290196, 0.517647)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
+shadow_size = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2dkr"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmynm"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_ugnsm"]
+default_font = ExtResource("4_536vs")
+default_font_size = 16
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 2
+Button/styles/focus = SubResource("StyleBoxFlat_lqo6p")
+Button/styles/hover = SubResource("StyleBoxFlat_u38el")
+Button/styles/normal = SubResource("StyleBoxFlat_p2dkr")
+Button/styles/pressed = SubResource("StyleBoxFlat_mmynm")
 
 [sub_resource type="GDScript" id="GDScript_e6wvf"]
 
+[sub_resource type="Theme" id="Theme_ps1pk"]
+
 [node name="MainMenu" type="Control"]
+texture_filter = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ugnsm")
 script = SubResource("GDScript_e6wvf")
 
 [node name="B" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 320.0
+offset_bottom = 192.0
 texture = ExtResource("1_iiesl")
+expand_mode = 1
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 
 [node name="VB" type="VBoxContainer" parent="M"]
-custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/separation = 35
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="NewGame" type="Button" parent="M/VB"]
+layout_mode = 2
+text = "New  Game"
+
+[node name="HB" type="HBoxContainer" parent="M/VB"]
+layout_mode = 2
+theme_override_constants/separation = 25
 alignment = 1
 
-[node name="NewGame" type="TextureButton" parent="M/VB"]
-custom_minimum_size = Vector2(350, 75)
+[node name="Settings" type="Button" parent="M/VB/HB"]
 layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_7vrk0")
-texture_pressed = ExtResource("3_a5q7l")
-stretch_mode = 0
+text = "Settings"
 
-[node name="Label" type="Label" parent="M/VB/NewGame"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
+[node name="About" type="Button" parent="M/VB/HB"]
+layout_mode = 2
+text = "About"
+
+[node name="Quit" type="Button" parent="M/VB/HB"]
+layout_mode = 2
+theme = SubResource("Theme_ps1pk")
 theme_override_fonts/font = ExtResource("4_536vs")
-theme_override_font_sizes/font_size = 30
-text = "New Game
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Settings" type="TextureButton" parent="M/VB"]
-custom_minimum_size = Vector2(350, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_7vrk0")
-texture_pressed = ExtResource("3_a5q7l")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="M/VB/Settings"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("4_536vs")
-theme_override_font_sizes/font_size = 30
-text = "Settings
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="About" type="TextureButton" parent="M/VB"]
-custom_minimum_size = Vector2(350, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_7vrk0")
-texture_pressed = ExtResource("3_a5q7l")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="M/VB/About"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("4_536vs")
-theme_override_font_sizes/font_size = 30
-text = "About
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="M/VB"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="Quit" type="TextureButton" parent="M/VB"]
-custom_minimum_size = Vector2(350, 75)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_7vrk0")
-texture_pressed = ExtResource("3_a5q7l")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="M/VB/Quit"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("4_536vs")
-theme_override_font_sizes/font_size = 30
-text = "Quit
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Quit"
 
 [connection signal="pressed" from="M/VB/NewGame" to="." method="_on_new_game_pressed"]
