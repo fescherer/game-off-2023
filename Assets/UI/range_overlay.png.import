@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://48jgapuua474"
-path="res://.godot/imported/range_overlay.png-cf3d9b17eb2aaf48bb2ebe5ef95c470a.ctex"
+path="res://.godot/imported/range_overlay.png-36b9cbf40db56745ea8b1626318a3e98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Tilesets/range_overlay.png"
-dest_files=["res://.godot/imported/range_overlay.png-cf3d9b17eb2aaf48bb2ebe5ef95c470a.ctex"]
+source_file="res://Assets/UI/range_overlay.png"
+dest_files=["res://.godot/imported/range_overlay.png-36b9cbf40db56745ea8b1626318a3e98.ctex"]
 
 [params]
 
