@@ -2,7 +2,7 @@ extends Node2D
 
 var direction = Vector2(0, 0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	turn()
 	
 func turn():

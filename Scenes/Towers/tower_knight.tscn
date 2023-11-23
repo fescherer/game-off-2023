@@ -8,18 +8,14 @@
 script = ExtResource("1_8elcq")
 
 [node name="Base" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
-scale = Vector2(2, 2)
 texture = ExtResource("2_ldo7j")
 
 [node name="Tower" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16, 16)
-scale = Vector2(2, 2)
 texture = ExtResource("3_frrrl")
 offset = Vector2(0, -2)
 hframes = 4
 frame = 3
 
 [node name="Muzzle" type="Marker2D" parent="Tower"]
-position = Vector2(8.39, 0)
+position = Vector2(8, 0)

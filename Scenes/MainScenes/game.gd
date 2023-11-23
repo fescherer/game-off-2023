@@ -9,7 +9,7 @@ var build_location
 var build_type
 
 func _ready():
-	map_node = get_node("Map1")
+	map_node = get_node("Map01")
 	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
@@ -24,7 +24,7 @@ func _unhandled_input(event):
 		cancel_build_mode()
 	if event.is_action_released("ui_accept") and build_mode:
 		verify_and_build()
-		cancel_build_mode()
+
 
 func initiate_build_mode(tower_type):
 	build_type = "tower_" + tower_type.to_lower()
@@ -50,10 +50,12 @@ func cancel_build_mode():
 	get_node("UI/TowerPreview").queue_free()
 
 func verify_and_build():
-#	Test to verfiy if player has enough cash
-	var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
-	new_tower.position = build_location
-	map_node.get_node("Towers").add_child(new_tower, true)
-	#deduct cash
-	#update cash label
+	if build_valid:
+	#	Test to verfiy if player has enough cash
+		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
+		new_tower.position = build_location
+		map_node.get_node("Towers").add_child(new_tower, true)
+		#deduct cash
+		#update cash label
+		cancel_build_mode()
 
