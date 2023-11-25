@@ -12,7 +12,7 @@ func move(delta):
 	set_progress(get_progress() + speed + delta)
 	var current_position = position
 
-	if(last_position != current_position):
+	if(abs(last_position.x) != abs(current_position.x) || abs(last_position.y) != abs(current_position.y)):
 		if(abs(last_position.x) < abs(current_position.x)): # Going Right
 			_animated_sprite.play('east')
 		if(abs(last_position.x) > abs(current_position.x)): # Going Left

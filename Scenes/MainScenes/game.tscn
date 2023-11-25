@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://2l53iqdxctbl"]
+[gd_scene load_steps=9 format=3 uid="uid://2l53iqdxctbl"]
 
 [ext_resource type="Script" path="res://Scenes/MainScenes/game.gd" id="1_s360q"]
 [ext_resource type="PackedScene" uid="uid://xxodqh3mc4r7" path="res://Scenes/Maps/Map01.tscn" id="2_4n37u"]
 [ext_resource type="Texture2D" uid="uid://gt5wcvnl6k3h" path="res://Assets/Towers/Knight/Faceset.png" id="2_nn1ye"]
 [ext_resource type="Script" path="res://Scenes/MainScenes/UI.gd" id="3_0f01c"]
 [ext_resource type="Texture2D" uid="uid://b271x3lgfvanm" path="res://Assets/Towers/Mage/Faceset.png" id="3_rgqh6"]
+[ext_resource type="Texture2D" uid="uid://cvdj1lsij4uy1" path="res://Assets/UI/arrow-play.png" id="6_4gfaw"]
+[ext_resource type="Texture2D" uid="uid://jmo3v7bgdy2c" path="res://Assets/UI/pause.png" id="7_8ye5f"]
+[ext_resource type="Texture2D" uid="uid://8w34ugrxg7xh" path="res://Assets/UI/arrow-fastfoward.png" id="8_s0xh8"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_s360q")
@@ -51,3 +54,26 @@ stretch_mode = 1
 layout_mode = 2
 texture_normal = ExtResource("3_rgqh6")
 stretch_mode = 0
+
+[node name="Spacing" type="Control" parent="UI/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="UI/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PausePlay" type="TextureButton" parent="UI/HUD/MarginContainer/VBoxContainer/Buttons"]
+process_mode = 3
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("6_4gfaw")
+texture_pressed = ExtResource("7_8ye5f")
+
+[node name="Fastfoward" type="TextureButton" parent="UI/HUD/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("8_s0xh8")
+
+[connection signal="pressed" from="UI/HUD/MarginContainer/VBoxContainer/Buttons/PausePlay" to="UI" method="_on_pause_play_pressed"]
+[connection signal="pressed" from="UI/HUD/MarginContainer/VBoxContainer/Buttons/Fastfoward" to="UI" method="_on_fastfoward_pressed"]

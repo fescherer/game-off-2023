@@ -17,10 +17,7 @@ func _ready():
 	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
-	
-	start_next_wave()
 
-	
 func _process(_delta): #Run every frame
 	if build_mode:
 		update_tower_preview()
@@ -91,4 +88,3 @@ func verify_and_build():
 		#deduct cash
 		#update cash label
 		cancel_build_mode()
-
