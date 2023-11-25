@@ -23,8 +23,8 @@ GameData="*res://Singletons/GameData.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=192
-window/size/window_width_override=1280
-window/size/window_height_override=672
+window/size/window_width_override=960
+window/size/window_height_override=576
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://Assets/UI/cursor_pointer3D.png"
 
