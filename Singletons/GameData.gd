@@ -1,14 +1,14 @@
 extends Node
 
 var tower_data = {
-	"tower_knight": {
-		"damage": 20,
+	"TowerKnight": {
+		"damage": 50,
 		"rof": 1,
 		"range": 48,
 	},
-	"tower_mage": {
-		"damage": 20,
+	"TowerMage": {
+		"damage": 10,
 		"rof": 1,
 		"range": 128,
-	}
+	} 
 }

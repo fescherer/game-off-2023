@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd3pmjirlraya"]
+
+[ext_resource type="Texture2D" uid="uid://blicst2haf5lk" path="res://Assets/Towers/Knight/power.png" id="1_yvpu6"]
+[ext_resource type="Script" path="res://Scenes/SupportScenes/Impact/KnightImpact.gd" id="2_i30ai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rfce"]
+atlas = ExtResource("1_yvpu6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8uyi"]
+atlas = ExtResource("1_yvpu6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_854ma"]
+atlas = ExtResource("1_yvpu6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waswh"]
+atlas = ExtResource("1_yvpu6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5xo4"]
+animations = [{
+"frames": [{
+"duration": 0.05,
+"texture": SubResource("AtlasTexture_0rfce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8uyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_854ma")
+}, {
+"duration": 0.03,
+"texture": SubResource("AtlasTexture_waswh")
+}],
+"loop": false,
+"name": &"Impact",
+"speed": 5.0
+}]
+
+[node name="KnightImpact" type="AnimatedSprite2D"]
+scale = Vector2(0.186, 0.2)
+sprite_frames = SubResource("SpriteFrames_w5xo4")
+animation = &"Impact"
+autoplay = "Impact"
+speed_scale = 0.5
+script = ExtResource("2_i30ai")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

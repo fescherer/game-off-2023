@@ -46,6 +46,11 @@ Button/styles/normal = SubResource("StyleBoxFlat_p2dkr")
 Button/styles/pressed = SubResource("StyleBoxFlat_mmynm")
 
 [sub_resource type="GDScript" id="GDScript_e6wvf"]
+script/source = "extends Control
+
+func _on_new_game_pressed():
+	pass
+"
 
 [sub_resource type="Theme" id="Theme_ps1pk"]
 

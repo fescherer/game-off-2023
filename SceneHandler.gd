@@ -4,6 +4,9 @@ func _ready():
 	$MainMenu/M/VB/NewGame.pressed.connect(on_new_game_pressed)
 	$MainMenu/M/VB/HB/Quit.pressed.connect(on_quit_pressed)
 
+func _on_main_menu_ready():
+	pass
+
 func on_new_game_pressed():
 	get_node("MainMenu").queue_free()
 	var game_scene = load("res://Scenes/MainScenes/game.tscn").instantiate()

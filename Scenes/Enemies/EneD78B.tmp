@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://csmxtxxt0kkdq" path="res://Assets/Enemies/Bamboo/BambooSpriteSheet.png" id="1_txfyl"]
 [ext_resource type="Script" path="res://Scenes/Enemies/EnemyBamboo.gd" id="1_vou5d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mggj"]
-size = Vector2(14, 15)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq4qw"]
 atlas = ExtResource("1_txfyl")
 region = Rect2(32, 0, 16, 16)
@@ -141,20 +138,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mggj"]
+size = Vector2(14, 15)
+
 [node name="EnemyBamboo" type="PathFollow2D"]
 rotates = false
 script = ExtResource("1_vou5d")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_gdewv")
+animation = &"east"
+offset = Vector2(0, -8)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_6mggj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_gdewv")
-animation = &"east"
-
-[node name="Impact" type="Marker2D" parent="."]
-position = Vector2(-5, -5)
-gizmo_extents = 4.0

@@ -37,7 +37,7 @@ func start_next_wave():
 	spawn_enemies(wave_data)
 	
 func retrieve_wave_data():
-	var wave_data = [["EnemyBamboo", 5]]
+	var wave_data = [["EnemyBamboo", 5],["EnemyBamboo", 3],["EnemyBamboo", 3],["EnemyBamboo", 3],["EnemyBamboo", 3]]
 	current_wave += 1
 	enemies_in_wave = wave_data.size()
 	return wave_data
@@ -55,7 +55,7 @@ func spawn_enemies(wave_data):
 func initiate_build_mode(tower_type):
 	if build_mode:
 		cancel_build_mode()
-	build_type = "tower_" + tower_type.to_lower()
+	build_type = "Tower" + tower_type
 	build_mode = true
 	get_node("UI").set_tower_preview(build_type, get_global_mouse_position())
 
@@ -83,6 +83,8 @@ func verify_and_build():
 	#	Test to verfiy if player has enough cash
 		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
 		new_tower.position = build_location
+		new_tower.is_built = true
+		new_tower.tower_type = build_type
 		map_node.get_node("Towers").add_child(new_tower, true)
 		map_node.get_node("TowerExclusion").set_cell(0, build_tile, 0, Vector2i(3,4), 0)
 		#deduct cash

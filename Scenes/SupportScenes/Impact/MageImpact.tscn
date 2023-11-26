@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0pxdoaykflnm"]
+
+[ext_resource type="Texture2D" uid="uid://21iyblhmevcf" path="res://Assets/Towers/Mage/power.png" id="1_qoapj"]
+[ext_resource type="Script" path="res://Scenes/SupportScenes/Impact/MageImpact.gd" id="2_t0xsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj25p"]
+atlas = ExtResource("1_qoapj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44ffa"]
+atlas = ExtResource("1_qoapj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_867di"]
+atlas = ExtResource("1_qoapj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0a5v"]
+atlas = ExtResource("1_qoapj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5xo4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj25p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44ffa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_867di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0a5v")
+}],
+"loop": false,
+"name": &"Impact",
+"speed": 5.0
+}]
+
+[node name="MageImpact" type="AnimatedSprite2D"]
+scale = Vector2(0.186, 0.2)
+sprite_frames = SubResource("SpriteFrames_w5xo4")
+animation = &"Impact"
+autoplay = "Impact"
+speed_scale = 0.5
+script = ExtResource("2_t0xsq")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
