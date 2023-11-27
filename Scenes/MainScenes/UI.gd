@@ -1,7 +1,9 @@
 extends CanvasLayer
 
+@onready var hp_label = $HUD/MarginContainer/VBoxContainer/InfoBar/Life/Label
+@onready var coin_label = $HUD/MarginContainer/VBoxContainer/InfoBar/Money/Label
+
 func set_tower_preview(tower_type, mouse_position):
-	print(tower_type)
 	var drag_tower = load("res://Scenes/Towers/" + tower_type + ".tscn").instantiate()
 	drag_tower.set_name("DragTower")
 	drag_tower.modulate = Color("bb243dd9")
@@ -50,3 +52,9 @@ func _on_fastfoward_pressed():
 		Engine.set_time_scale(1.0)
 	else:
 		Engine.set_time_scale(15.0)
+
+func update_health(life):
+	hp_label.text = str(life)
+	
+func update_coin(coin):
+	coin_label.text = str(coin)
