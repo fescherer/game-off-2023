@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b271x3lgfvanm"
-path="res://.godot/imported/Faceset.png-0f9b788835bb69d4b4e82837d07294fa.ctex"
+uid="uid://cs645oo0ondvs"
+path="res://.godot/imported/Faceset-small.png-fcdc559fdc3a221e5d3e046121b04ae9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/Mage/Faceset.png"
-dest_files=["res://.godot/imported/Faceset.png-0f9b788835bb69d4b4e82837d07294fa.ctex"]
+source_file="res://Assets/Towers/Knight/Faceset-small.png"
+dest_files=["res://.godot/imported/Faceset-small.png-fcdc559fdc3a221e5d3e046121b04ae9.ctex"]
 
 [params]
 

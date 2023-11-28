@@ -14,12 +14,13 @@ var current_wave = 0
 var enemies_in_wave = 0
 
 var base_health = 3
-var base_coins = 0
+var base_coins = 8
 
 func _ready():
 	map_node = get_node("Map01")
 	get_node("UI").update_health(base_health)
 	get_node("UI").update_coin(base_coins)
+	prepare_bought_items()
 	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
@@ -67,16 +68,28 @@ func on_base_damage(damage):
 func on_coin_amount(amount):
 	base_coins += amount
 	get_node("UI").update_coin(base_coins)
+	prepare_bought_items()
+
+func prepare_bought_items():
+	for i in get_tree().get_nodes_in_group("build_buttons"):
+		var tower_cost = GameData.tower_data["Tower" + i.name]['cost']
+		if tower_cost >= base_coins + 1:
+			i.modulate = Color("93321f")
+		else:
+			i.modulate = Color(1,1,1,1)
 
 #
 # Building Functions
 #
 func initiate_build_mode(tower_type):
+	build_type = "Tower" + tower_type
+	var tower_cost = GameData.tower_data[build_type]['cost']
 	if build_mode:
 		cancel_build_mode()
-	build_type = "Tower" + tower_type
-	build_mode = true
-	get_node("UI").set_tower_preview(build_type, get_global_mouse_position())
+	
+	if base_coins >= tower_cost:
+		build_mode = true
+		get_node("UI").set_tower_preview(build_type, get_global_mouse_position())
 
 func update_tower_preview():
 	var mouse_position = get_global_mouse_position()
@@ -99,13 +112,15 @@ func cancel_build_mode():
 
 func verify_and_build():
 	if build_valid:
-	#	Test to verfiy if player has enough cash
-		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
-		new_tower.position = build_location
-		new_tower.is_built = true
-		new_tower.tower_type = build_type
-		map_node.get_node("Towers").add_child(new_tower, true)
-		map_node.get_node("TowerExclusion").set_cell(0, build_tile, 0, Vector2i(3,4), 0)
-		#deduct cash
-		#update cash label
-		cancel_build_mode()
+		var tower_cost = GameData.tower_data[build_type]['cost']
+		if base_coins >= tower_cost:
+			var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
+			new_tower.position = build_location
+			new_tower.is_built = true
+			new_tower.tower_type = build_type
+			map_node.get_node("Towers").add_child(new_tower, true)
+			map_node.get_node("TowerExclusion").set_cell(0, build_tile, 0, Vector2i(3,4), 0)
+			base_coins -= tower_cost
+			get_node("UI").update_coin(base_coins)
+			prepare_bought_items()
+			cancel_build_mode()
