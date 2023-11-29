@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2l53iqdxctbl"]
+[gd_scene load_steps=9 format=3 uid="uid://2l53iqdxctbl"]
 
 [ext_resource type="Script" path="res://Scenes/MainScenes/game.gd" id="1_s360q"]
 [ext_resource type="PackedScene" uid="uid://xxodqh3mc4r7" path="res://Scenes/Maps/Map01.tscn" id="2_4n37u"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cswc2pqtu10we" path="res://Assets/UI/Coin22.png" id="4_44leb"]
 [ext_resource type="Texture2D" uid="uid://bqxu5u7qgtax" path="res://Assets/UI/Heart copy.png" id="5_x5f6v"]
 [ext_resource type="Texture2D" uid="uid://cvdj1lsij4uy1" path="res://Assets/UI/arrow-play.png" id="6_4gfaw"]
-[ext_resource type="Texture2D" uid="uid://cs645oo0ondvs" path="res://Assets/Towers/Knight/Faceset-small.png" id="6_autww"]
 [ext_resource type="Texture2D" uid="uid://jmo3v7bgdy2c" path="res://Assets/UI/pause.png" id="7_8ye5f"]
-[ext_resource type="Texture2D" uid="uid://c0f68t51k5ans" path="res://Assets/Towers/Mage/Faceset-small.png" id="7_fp22v"]
 [ext_resource type="Texture2D" uid="uid://8w34ugrxg7xh" path="res://Assets/UI/arrow-fastfoward.png" id="8_s0xh8"]
 
 [node name="game" type="Node2D"]
@@ -84,24 +82,8 @@ size_flags_stretch_ratio = 1.1
 texture = ExtResource("5_x5f6v")
 stretch_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="UI/HUD/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
-columns = 2
-
-[node name="Knight" type="TextureButton" parent="UI/HUD/MarginContainer/VBoxContainer/GridContainer" groups=["build_buttons"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.1
-texture_normal = ExtResource("6_autww")
-stretch_mode = 1
-
-[node name="Mage" type="TextureButton" parent="UI/HUD/MarginContainer/VBoxContainer/GridContainer" groups=["build_buttons"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("7_fp22v")
-stretch_mode = 1
 
 [node name="Spacing" type="Control" parent="UI/HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -120,6 +102,7 @@ texture_normal = ExtResource("6_4gfaw")
 texture_pressed = ExtResource("7_8ye5f")
 
 [node name="Fastfoward" type="TextureButton" parent="UI/HUD/MarginContainer/VBoxContainer/Buttons"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("8_s0xh8")
 

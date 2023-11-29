@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0pxdoaykflnm"]
 
-[ext_resource type="Texture2D" uid="uid://21iyblhmevcf" path="res://Assets/Towers/Mage/power.png" id="1_qoapj"]
+[ext_resource type="Texture2D" uid="uid://21iyblhmevcf" path="res://Assets/Towers/TowerMage/power.png" id="1_qoapj"]
 [ext_resource type="Script" path="res://Scenes/SupportScenes/Impact/MageImpact.gd" id="2_t0xsq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj25p"]

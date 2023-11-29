@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/Towers/TowerKnight.gd" id="1_8elcq"]
 [ext_resource type="Texture2D" uid="uid://b2aupimflahyd" path="res://Assets/Environment/Tilesets/tile044.png" id="2_ldo7j"]
-[ext_resource type="Texture2D" uid="uid://yihb555qiu0y" path="res://Assets/Towers/Knight/Idle.png" id="3_frrrl"]
-[ext_resource type="Texture2D" uid="uid://0xuoj7jsu5oa" path="res://Assets/Towers/Knight/muzzle.png" id="4_x7dcx"]
+[ext_resource type="Texture2D" uid="uid://yihb555qiu0y" path="res://Assets/Towers/TowerKnight/Idle.png" id="3_e06ak"]
+[ext_resource type="Texture2D" uid="uid://0xuoj7jsu5oa" path="res://Assets/Towers/TowerKnight/muzzle.png" id="4_s05au"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqoev"]
 radius = 1.0
@@ -37,7 +37,7 @@ texture = ExtResource("2_ldo7j")
 
 [node name="Tower" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("3_frrrl")
+texture = ExtResource("3_e06ak")
 offset = Vector2(0, -2)
 hframes = 4
 frame = 1
@@ -51,7 +51,7 @@ visible = false
 position = Vector2(4, 0)
 rotation = 4.71239
 scale = Vector2(0.85, 0.85)
-texture = ExtResource("4_x7dcx")
+texture = ExtResource("4_s05au")
 
 [node name="Range" type="Area2D" parent="."]
 

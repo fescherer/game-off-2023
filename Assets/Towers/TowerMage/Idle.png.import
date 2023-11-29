@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blicst2haf5lk"
-path="res://.godot/imported/power.png-d560ade3dd0d30b9ab36e65d6e8a2a3b.ctex"
+uid="uid://psaaufwy0y6x"
+path="res://.godot/imported/Idle.png-6b07e44ea3bfae35eb46d0e6a7c650ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/Knight/power.png"
-dest_files=["res://.godot/imported/power.png-d560ade3dd0d30b9ab36e65d6e8a2a3b.ctex"]
+source_file="res://Assets/Towers/TowerMage/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-6b07e44ea3bfae35eb46d0e6a7c650ba.ctex"]
 
 [params]
 

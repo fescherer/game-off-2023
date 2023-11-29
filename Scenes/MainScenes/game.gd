@@ -22,8 +22,30 @@ func _ready():
 	get_node("UI").update_coin(base_coins)
 	prepare_bought_items()
 	
-	for i in get_tree().get_nodes_in_group("build_buttons"):
-		i.pressed.connect(initiate_build_mode.bind(i.name))
+	var coin_texture = load("res://Assets/UI/Coin22.png")
+	for i in GameData.tower_data.keys():
+		var tower_group = HBoxContainer.new()
+		tower_group.set_name(i + "Group")
+		tower_group.alignment = 1
+		var button = TextureButton.new()
+		button.set_name(i)
+		var texture = load("res://Assets/Towers/" + i +"/faceset.png")
+		button.texture_normal = texture
+		button.add_to_group("build_buttons")
+		button.pressed.connect(initiate_build_mode.bind(i))
+		tower_group.add_child(button)
+		var label = Label.new()
+		label.add_theme_font_size_override("font_size", 8)
+		label.text = str(GameData.tower_data[i]["cost"])
+		tower_group.add_child(label)
+		var coin = TextureRect.new()
+		coin.texture = coin_texture
+		coin.stretch_mode = 2
+		coin.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		coin.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		tower_group.add_child(coin)
+		$UI/HUD/MarginContainer/VBoxContainer/VBoxContainer.add_child(tower_group)
+		print(i)
 
 func _process(_delta): #Run every frame
 	if build_mode:
@@ -44,10 +66,9 @@ func start_next_wave():
 	spawn_enemies(wave_data)
 	
 func retrieve_wave_data():
-	var wave_data = [["EnemyBamboo", 5],["EnemyBamboo", 3],["EnemyBamboo", 3],["EnemyBamboo", 3],["EnemyBamboo", 3]]
 	current_wave += 1
-	enemies_in_wave = wave_data.size()
-	return wave_data
+	enemies_in_wave = GameData.enemies.size()
+	return GameData.enemies
 	
 func spawn_enemies(wave_data):
 	for i in wave_data:
@@ -72,7 +93,7 @@ func on_coin_amount(amount):
 
 func prepare_bought_items():
 	for i in get_tree().get_nodes_in_group("build_buttons"):
-		var tower_cost = GameData.tower_data["Tower" + i.name]['cost']
+		var tower_cost = GameData.tower_data[i.name]['cost']
 		if tower_cost >= base_coins + 1:
 			i.modulate = Color("93321f")
 		else:
@@ -82,7 +103,7 @@ func prepare_bought_items():
 # Building Functions
 #
 func initiate_build_mode(tower_type):
-	build_type = "Tower" + tower_type
+	build_type = tower_type
 	var tower_cost = GameData.tower_data[build_type]['cost']
 	if build_mode:
 		cancel_build_mode()

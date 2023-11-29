@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yihb555qiu0y"
-path="res://.godot/imported/Idle.png-5a1f37275d34caebec6d7556452d71d7.ctex"
+uid="uid://ddmrtqoekorqb"
+path="res://.godot/imported/Larva2.png-d9d33f99f9e8262ba73e21d15ed90a1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/Knight/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-5a1f37275d34caebec6d7556452d71d7.ctex"]
+source_file="res://Assets/Enemies/Larva2.png"
+dest_files=["res://.godot/imported/Larva2.png-d9d33f99f9e8262ba73e21d15ed90a1b.ctex"]
 
 [params]
 

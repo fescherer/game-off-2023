@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cd3pmjirlraya"]
 
-[ext_resource type="Texture2D" uid="uid://blicst2haf5lk" path="res://Assets/Towers/Knight/power.png" id="1_yvpu6"]
+[ext_resource type="Texture2D" uid="uid://blicst2haf5lk" path="res://Assets/Towers/TowerKnight/power.png" id="1_yvpu6"]
 [ext_resource type="Script" path="res://Scenes/SupportScenes/Impact/KnightImpact.gd" id="2_i30ai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rfce"]

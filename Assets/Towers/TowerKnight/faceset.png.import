@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xuoj7jsu5oa"
-path="res://.godot/imported/muzzle.png-84d4406ba951a127d527246906eef4b5.ctex"
+uid="uid://cs645oo0ondvs"
+path="res://.godot/imported/faceset.png-74de9beebb2e690cbdc50809b4e0159d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/Knight/muzzle.png"
-dest_files=["res://.godot/imported/muzzle.png-84d4406ba951a127d527246906eef4b5.ctex"]
+source_file="res://Assets/Towers/TowerKnight/faceset.png"
+dest_files=["res://.godot/imported/faceset.png-74de9beebb2e690cbdc50809b4e0159d.ctex"]
 
 [params]
 

@@ -14,3 +14,16 @@ var tower_data = {
 		"cost": 3,
 	} 
 }
+
+var enemies = [
+	["EnemyButterfly", 5],
+	["EnemyButterfly", 5],
+	["EnemyButterfly", 5],
+	["EnemyButterfly", 5],
+	["EnemyButterfly", 5],
+#	["EnemyTanuki", 3],
+#	["BossTanuki", 3],
+#	["EnemyButterfly", 5],
+#	["EnemyBamboo", 3],
+#	["EnemyLarva", 3],
+	]

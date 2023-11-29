@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://psaaufwy0y6x"
-path="res://.godot/imported/Idle.png-6e357c94e0601abe73982726edef1a86.ctex"
+uid="uid://b2wsa41vfby0h"
+path="res://.godot/imported/ButterflyBlueSpriteSheet.png-27ed447e001ddc76b0430eac161b1eb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/Mage/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-6e357c94e0601abe73982726edef1a86.ctex"]
+source_file="res://Assets/Enemies/ButterflyBlueSpriteSheet.png"
+dest_files=["res://.godot/imported/ButterflyBlueSpriteSheet.png-27ed447e001ddc76b0430eac161b1eb3.ctex"]
 
 [params]
 

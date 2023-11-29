@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diowxr7io5kcg"
-path="res://.godot/imported/muzzle.png-9696a710e0775b5e397169073d71189d.ctex"
+uid="uid://ctgr3g642k0d6"
+path="res://.godot/imported/bullet.png-c5d874f05d476b641212d1d06c48e4e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/Mage/muzzle.png"
-dest_files=["res://.godot/imported/muzzle.png-9696a710e0775b5e397169073d71189d.ctex"]
+source_file="res://Assets/Towers/TowerMage/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-c5d874f05d476b641212d1d06c48e4e1.ctex"]
 
 [params]
 
