@@ -62,7 +62,7 @@ func _unhandled_input(event):
 #
 func start_next_wave():
 	var wave_data = retrieve_wave_data()
-	await get_tree().create_timer(0.2).timeout ## time between waves
+	await get_tree().create_timer(0.2, false).timeout ## time between waves
 	spawn_enemies(wave_data)
 	
 func retrieve_wave_data():
@@ -76,7 +76,7 @@ func spawn_enemies(wave_data):
 		new_enemy.connect("base_damage_signal", on_base_damage)
 		new_enemy.connect("coin_amount_signal", on_coin_amount)
 		map_node.get_node("Path").add_child(new_enemy, true)
-		await get_tree().create_timer(i[1]).timeout
+		await get_tree().create_timer(i[1], false).timeout
 
 func on_base_damage(damage):
 	print('teve dano')
