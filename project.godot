@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*res://Singletons/GameData.gd"
+Enums="*res://Singletons/Enums.gd"
 
 [display]
 

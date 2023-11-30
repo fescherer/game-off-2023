@@ -64,7 +64,7 @@ func fire():
 	is_ready = false
 	run_animation()
 	enemy.on_hit(GameData.tower_data[tower_type]["damage"], tower_type)
-	await get_tree().create_timer(GameData.tower_data[tower_type]["rof"]).timeout
+	await get_tree().create_timer(GameData.tower_data[tower_type]["rof"], false).timeout
 	is_ready = true
 
 func run_animation():

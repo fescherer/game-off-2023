@@ -64,5 +64,5 @@ func impact(tower_type):
 func on_destroy():
 	coin_amount_signal.emit(coin_amount)
 	get_node("CharacterBody2D").queue_free()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.2, false).timeout
 	self.queue_free()

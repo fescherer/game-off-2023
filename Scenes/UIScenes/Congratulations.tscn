@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytlm0kx2glw4"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/Congratulations.gd" id="1_qwer1"]
+
+[node name="CongratulationsScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_qwer1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.596078, 0.231373, 0.0784314)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -73.5
+offset_right = 151.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.403922, 0.772549, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "CONGRATULATIONS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "You finished the game"
+
+[node name="PlayAgain" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Play again"
+
+[node name="Infinity" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Infinity Mode"
+
+[node name="Leave" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Leave"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Infinity" to="." method="_on_infinity_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Leave" to="." method="_on_leave_pressed"]

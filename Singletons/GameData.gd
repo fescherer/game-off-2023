@@ -15,15 +15,22 @@ var tower_data = {
 	} 
 }
 
-var enemies = [
-#	["EnemyButterfly", 5],
-#	["EnemyButterfly", 5],
-#	["EnemyButterfly", 5],
-#	["EnemyButterfly", 5],
-	["EnemyButterfly", 5],
-	["EnemyTanuki", 3],
-	["BossTanuki", 3],
-	["EnemyButterfly", 5],
-	["EnemyBamboo", 3],
-	["EnemyLarva", 3],
-	]
+var enemies = ["EnemyBamboo","EnemyButterfly", "EnemyTanuki", "BossTanuki", "EnemyLarva"]
+
+var waves = {
+	wave1 = [
+#		["EnemyButterfly", 5],
+#		["EnemyTanuki", 3],
+#		["BossTanuki", 3],
+#		["EnemyButterfly", 5],
+#		["EnemyBamboo", 3],
+		["EnemyLarva", 3],
+	],
+#	wave2 = [
+##		["EnemyTanuki", 3],
+##		["EnemyTanuki", 3],
+##		["EnemyTanuki", 3],
+##		["EnemyTanuki", 3],
+#		["EnemyTanuki", 3],
+#	]
+}

@@ -12,6 +12,8 @@ var build_type
 
 var current_wave = 0
 var enemies_in_wave = 0
+var is_wave_started = false
+var is_infinity_mode = false
 
 var base_health = 3
 var base_coins = 8
@@ -61,15 +63,29 @@ func _unhandled_input(event):
 # Wave function
 #
 func start_next_wave():
-	var wave_data = retrieve_wave_data()
-	await get_tree().create_timer(0.2, false).timeout ## time between waves
-	spawn_enemies(wave_data)
+	if is_infinity_mode:
+		run_infinity_mode()
+	else:
+		is_wave_started = true
+		var wave_data = retrieve_wave_data()
+		get_node("UI").update_wave_label(current_wave)
+		await get_tree().create_timer(0.2, false).timeout ## time between waves
+		await spawn_enemies(wave_data)
+
 	
 func retrieve_wave_data():
 	current_wave += 1
-	enemies_in_wave = GameData.enemies.size()
-	return GameData.enemies
-	
+	var enemies = GameData.waves["wave"+str(current_wave)]
+	enemies_in_wave = enemies.size()
+	return enemies
+
+func handle_enemy_wave():
+	is_wave_started = false
+	$UI/HUD/MarginContainer/VBoxContainer/Buttons/PausePlay.button_pressed = false
+	if(current_wave == GameData.waves.values().size()):
+		await get_tree().create_timer(0.5, false).timeout
+		game_finished.emit(Enums.gameState.win)
+
 func spawn_enemies(wave_data):
 	for i in wave_data:
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
@@ -77,16 +93,40 @@ func spawn_enemies(wave_data):
 		new_enemy.connect("coin_amount_signal", on_coin_amount)
 		map_node.get_node("Path").add_child(new_enemy, true)
 		await get_tree().create_timer(i[1], false).timeout
+		
+
+func run_infinity_mode():
+	is_wave_started = true
+	current_wave += 1
+	get_node("UI").update_wave_label(current_wave)
+	randomize()
+	var quantity_of_enemies = randi()%GameData.enemies.size()+2
+	var enemies = []
+	for i in range(quantity_of_enemies):
+		randomize()
+		var enemy_index = randi()%GameData.enemies.size()
+		randomize()
+		var enemy_time = randi_range(0, 2)
+		enemies.append([GameData.enemies[enemy_index], enemy_time])
+	await spawn_enemies(enemies)
+	await get_tree().create_timer(5, false).timeout ## time between waves
+	run_infinity_mode()
 
 func on_base_damage(damage):
-	print('teve dano')
 	base_health -= damage
 	if base_health <=0:
-		emit_signal("game_finished", false)
+		get_node("UI").update_health(base_health)
+		game_finished.emit(Enums.gameState.lost)
+		is_wave_started = false
 	else:
 		get_node("UI").update_health(base_health)
-		
+	if(not is_infinity_mode and enemies_in_wave == 0):
+		handle_enemy_wave()
+
 func on_coin_amount(amount):
+	enemies_in_wave -= 1
+	if(not is_infinity_mode and enemies_in_wave == 0):
+		handle_enemy_wave()
 	base_coins += amount
 	get_node("UI").update_coin(base_coins)
 	prepare_bought_items()
@@ -98,6 +138,7 @@ func prepare_bought_items():
 			i.modulate = Color("93321f")
 		else:
 			i.modulate = Color(1,1,1,1)
+			
 
 #
 # Building Functions
