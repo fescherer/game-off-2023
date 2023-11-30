@@ -100,7 +100,7 @@ func run_infinity_mode():
 	current_wave += 1
 	get_node("UI").update_wave_label(current_wave)
 	randomize()
-	var quantity_of_enemies = randi()%GameData.enemies.size()+2
+	var quantity_of_enemies = current_wave + randi()%current_wave + 5 +2
 	var enemies = []
 	for i in range(quantity_of_enemies):
 		randomize()

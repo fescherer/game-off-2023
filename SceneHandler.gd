@@ -28,7 +28,7 @@ func finished_game(result, wave):
 		unload_game('')
 
 func unload_game(_result):
-	if(get_node("game")):
+	if(has_node("game")):
 		get_node("game").queue_free()
 	remove_scenes_finished()
 	
@@ -39,6 +39,7 @@ func unload_game(_result):
 	
 func load_main_menu():
 	$MainMenu/M/VB/NewGame.pressed.connect(on_new_game_pressed)
+	$MainMenu/M/VB/HB/About.pressed.connect(on_about_pressed)
 	$MainMenu/M/VB/HB/Quit.pressed.connect(on_quit_pressed)
 
 func remove_scenes_finished():
@@ -46,6 +47,15 @@ func remove_scenes_finished():
 		get_node("CongratulationsScreen").queue_free()
 	if(has_node("GameOverScreen")):
 		get_node("GameOverScreen").queue_free()
+	if(has_node("About")):
+		get_node("About").queue_free()
+
+func on_about_pressed():
+	get_node("MainMenu").queue_free()
+	get_tree().paused = false
+	var about = load("res://Scenes/UIScenes/About.tscn").instantiate()
+	about.leave.connect(unload_game)
+	add_child(about)
 
 func on_quit_pressed():
 	get_tree().quit()

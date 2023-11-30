@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjtiyim6mg7p6"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/About.gd" id="1_8qof4"]
+[ext_resource type="Texture2D" uid="uid://ccjy3m84heq6y" path="res://Assets/UI/bg.png" id="1_k56p1"]
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qof4")
+
+[node name="B" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 192.0
+texture = ExtResource("1_k56p1")
+expand_mode = 1
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="GameTitle" type="VBoxContainer" parent="M"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M/GameTitle"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="M/GameTitle/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Created by"
+
+[node name="LinkButton" type="LinkButton" parent="M/GameTitle/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Felipe Scherer"
+uri = "https://github.com/fescherer"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="M/GameTitle"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="M/GameTitle/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Assets from"
+
+[node name="LinkButton" type="LinkButton" parent="M/GameTitle/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Ninja Adventure Pack"
+uri = "https://pixel-boy.itch.io/ninja-adventure-asset-pack"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="M/GameTitle"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="M/GameTitle/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Tutorial Followed"
+
+[node name="LinkButton" type="LinkButton" parent="M/GameTitle/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Game Development Center"
+uri = "https://www.youtube.com/watch?v=wFdpCGbrVXI&list=PLZ-54sd-DMAJltIzTtZ6ZhC-9hkqYXyp6"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="M/GameTitle"]
+layout_mode = 2
+
+[node name="VB" type="VBoxContainer" parent="M"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="M/VB"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "As this was my first game, I want to document everthing, so I made a almost daily dev blog, you can read at"
+autowrap_mode = 2
+justification_flags = 160
+
+[node name="LinkButton" type="LinkButton" parent="M/VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Felipe Scherer's Blog"
+uri = "https://blog.felipescherer.com/personal/game_off_2023_journey"
+
+[node name="Back" type="Button" parent="M/VB"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Back"
+
+[connection signal="pressed" from="M/VB/Back" to="." method="_on_back_pressed"]
