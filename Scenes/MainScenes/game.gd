@@ -1,6 +1,6 @@
 extends Node2D
 
-signal game_finished(result)
+signal game_finished(result, wave)
 
 var map_node
 
@@ -84,7 +84,7 @@ func handle_enemy_wave():
 	$UI/HUD/MarginContainer/VBoxContainer/Buttons/PausePlay.button_pressed = false
 	if(current_wave == GameData.waves.values().size()):
 		await get_tree().create_timer(0.5, false).timeout
-		game_finished.emit(Enums.gameState.win)
+		game_finished.emit(Enums.gameState.win, current_wave)
 
 func spawn_enemies(wave_data):
 	for i in wave_data:
@@ -117,7 +117,7 @@ func on_base_damage(damage):
 	enemies_in_wave -= 1
 	if base_health <=0:
 		get_node("UI").update_health(base_health)
-		game_finished.emit(Enums.gameState.lost)
+		game_finished.emit(Enums.gameState.lost, current_wave)
 		is_wave_started = false
 	else:
 		get_node("UI").update_health(base_health)

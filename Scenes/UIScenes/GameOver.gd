@@ -13,5 +13,5 @@ func _on_leave_pressed():
 func _on_play_again_pressed():
 	main_menu.emit(true)
 
-func update_wave_label(wave):
+func change_wave_label(wave):
 	$ColorRect/VBoxContainer/HBoxContainer/WaveCounter.text = str(wave)

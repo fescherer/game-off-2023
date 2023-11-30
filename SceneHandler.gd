@@ -13,7 +13,7 @@ func on_new_game_pressed():
 	game_scene.game_finished.connect(finished_game)
 	add_child(game_scene)
 	
-func finished_game(result):
+func finished_game(result, wave):
 	if(result == Enums.gameState.win):
 		var congratulations = load("res://Scenes/UIScenes/Congratulations.tscn").instantiate()
 		congratulations.main_menu.connect(unload_game)
@@ -22,6 +22,7 @@ func finished_game(result):
 	elif(result == Enums.gameState.lost):
 		var gameover = load("res://Scenes/UIScenes/GameOver.tscn").instantiate()
 		gameover.main_menu.connect(unload_game)
+		gameover.change_wave_label(wave)
 		add_child(gameover)
 	else:
 		unload_game('')
