@@ -114,6 +114,7 @@ func run_infinity_mode():
 
 func on_base_damage(damage):
 	base_health -= damage
+	enemies_in_wave -= 1
 	if base_health <=0:
 		get_node("UI").update_health(base_health)
 		game_finished.emit(Enums.gameState.lost)
@@ -121,6 +122,7 @@ func on_base_damage(damage):
 	else:
 		get_node("UI").update_health(base_health)
 	if(not is_infinity_mode and enemies_in_wave == 0):
+		print('perdeu, mas ganhou')
 		handle_enemy_wave()
 
 func on_coin_amount(amount):
