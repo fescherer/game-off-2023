@@ -16,8 +16,8 @@ var impactData = {
 var base_damage = 1
 var coin_amount = 1
 var speed = 0.5
-var last_position = Vector2(0, 0)
 var hp = 50
+var last_position = Vector2(0, 0)
 var max_hp = hp
 
 func _physics_process(delta):
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		base_damage_signal.emit(base_damage)
 		queue_free()
 	move(delta)
-	
+
 func move(delta):
 	set_progress(get_progress() + speed + delta)
 	var current_position = position

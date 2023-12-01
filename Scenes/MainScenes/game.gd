@@ -47,7 +47,6 @@ func _ready():
 		coin.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		tower_group.add_child(coin)
 		$UI/HUD/MarginContainer/VBoxContainer/VBoxContainer.add_child(tower_group)
-		print(i)
 
 func _process(_delta): #Run every frame
 	if build_mode:
@@ -82,7 +81,7 @@ func retrieve_wave_data():
 func handle_enemy_wave():
 	is_wave_started = false
 	$UI/HUD/MarginContainer/VBoxContainer/Buttons/PausePlay.button_pressed = false
-	if(current_wave == GameData.waves.values().size()):
+	if(current_wave == GameData.waves.values().size() and enemies_in_wave == 0):
 		await get_tree().create_timer(0.5, false).timeout
 		game_finished.emit(Enums.gameState.win, current_wave)
 
@@ -107,31 +106,31 @@ func run_infinity_mode():
 		var enemy_index = randi()%GameData.enemies.size()
 		randomize()
 		var enemy_time = randi_range(0, 2)
-		enemies.append([GameData.enemies[enemy_index], enemy_time])
+		enemies.append([GameData.enemies[enemy_index]["name"], enemy_time])
 	await spawn_enemies(enemies)
 	await get_tree().create_timer(5, false).timeout ## time between waves
 	run_infinity_mode()
 
 func on_base_damage(damage):
 	base_health -= damage
-	enemies_in_wave -= 1
+	destroy_enemy()
 	if base_health <=0:
 		get_node("UI").update_health(base_health)
 		game_finished.emit(Enums.gameState.lost, current_wave)
 		is_wave_started = false
 	else:
 		get_node("UI").update_health(base_health)
-	if(not is_infinity_mode and enemies_in_wave == 0):
-		print('perdeu, mas ganhou')
-		handle_enemy_wave()
 
 func on_coin_amount(amount):
-	enemies_in_wave -= 1
-	if(not is_infinity_mode and enemies_in_wave == 0):
-		handle_enemy_wave()
+	destroy_enemy()
 	base_coins += amount
 	get_node("UI").update_coin(base_coins)
 	prepare_bought_items()
+
+func destroy_enemy():
+	enemies_in_wave -= 1
+	if(not is_infinity_mode and enemies_in_wave == 0):
+		handle_enemy_wave()
 
 func prepare_bought_items():
 	for i in get_tree().get_nodes_in_group("build_buttons"):

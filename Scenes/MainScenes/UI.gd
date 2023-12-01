@@ -38,13 +38,10 @@ func _on_pause_play_pressed():
 	if get_parent().build_mode:
 		get_parent().cancel_build_mode()
 	if get_tree().is_paused():
-		print('Entrou no paused')
 		get_tree().paused = false
 	elif not get_parent().is_wave_started:
-		print('aqioo')
 		get_parent().start_next_wave()
 	elif not get_parent().is_wave_started and get_parent().is_infinity_mode:
-		print('foiiiii')
 		get_parent().start_next_wave()
 	else:
 		get_tree().paused = true

@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_8qof4")
 
 [node name="B" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 320.0
 offset_bottom = 192.0
 texture = ExtResource("1_k56p1")
