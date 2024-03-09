@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kvtjygqln428"]
+[gd_scene load_steps=12 format=3 uid="uid://bksx03ol8ab86"]
 
 [ext_resource type="Texture2D" uid="uid://8ohdwc0bdopg" path="res://Assets/Environment/Tilesets/terrain.png" id="1_c3fv3"]
 [ext_resource type="Texture2D" uid="uid://rxvbvsyevjh0" path="res://Assets/Environment/Tilesets/TilesetNature.png" id="2_fj1ug"]

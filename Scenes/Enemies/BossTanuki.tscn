@@ -181,7 +181,7 @@ shape = SubResource("RectangleShape2D_u3dvw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_idpx0")
-animation = &"west"
+animation = &"east"
 
 [node name="Impact" type="Marker2D" parent="."]
 position = Vector2(-5, -5)
