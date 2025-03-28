@@ -18,6 +18,8 @@ Repo containing my game made in Game Off 2023.
 
 This is a tower defense game created for the Game Off 2023 event hosted by Github. It was built using the Godot game engine and represents my first foray into development with a major engine.
 
+YOu can play the game here: https://drafonf.itch.io/enchanted-towers-realm-defenders
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- **********************🐲Gifs Prints🐲********************** -->
